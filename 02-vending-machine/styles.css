@@ -1,0 +1,336 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+}
+
+.vending-machine {
+    background: linear-gradient(145deg, #2c3e50, #34495e);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 600px;
+    border: 3px solid #555;
+}
+
+.machine-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.machine-header h1 {
+    color: #fff;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.display-screen {
+    background: #0f0;
+    border: 4px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+    font-family: 'Courier New', monospace;
+    color: #000;
+    min-height: 80px;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+#message {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+#balance {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #004d00;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.product-card {
+    background: linear-gradient(145deg, #fff, #e0e0e0);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 2px solid #ddd;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.product-card.sold-out {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.product-card.selected {
+    border: 3px solid #4CAF50;
+    background: linear-gradient(145deg, #e8f5e9, #c8e6c9);
+}
+
+.product-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.product-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    color: #4CAF50;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.select-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.select-btn:hover {
+    background: #45a049;
+}
+
+.select-btn:active {
+    transform: scale(0.95);
+}
+
+.payment-section {
+    margin-bottom: 25px;
+}
+
+.payment-section h3 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.bills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.bill-btn {
+    background: linear-gradient(145deg, #27ae60, #2ecc71);
+    color: white;
+    border: 2px solid #1e8449;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.bill-btn:hover {
+    background: linear-gradient(145deg, #2ecc71, #27ae60);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.bill-btn:active {
+    transform: translateY(0);
+}
+
+.bill-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.reset-btn {
+    flex: 1;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.reset-btn:hover {
+    background: #c0392b;
+}
+
+.dispense-tray {
+    background: linear-gradient(145deg, #95a5a6, #7f8c8d);
+    border: 3px solid #555;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    min-height: 80px;
+    position: relative;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.tray-label {
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#dispensedItem {
+    font-size: 3rem;
+    animation: dispense 0.5s ease-out;
+}
+
+@keyframes dispense {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.admin-panel {
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+}
+
+.admin-panel h2 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.restock-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.restock-form h3 {
+    color: #555;
+    font-size: 1.2rem;
+}
+
+.restock-form input {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.3s;
+}
+
+.restock-form input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.admin-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.admin-btn:hover {
+    background: #5568d3;
+}
+
+#adminMessage {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#adminMessage.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+#adminMessage.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .bills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .machine-header h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+}

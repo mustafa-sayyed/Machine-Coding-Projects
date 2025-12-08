@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vending Machine</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="vending-machine">
+            <div class="machine-header">
+                <h1>🥤 Vending Machine</h1>
+            </div>
+
+            <div class="display-screen">
+                <div id="message">Welcome! Select a product to begin</div>
+                <div id="balance">Balance: ₹0</div>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card" data-product="water">
+                    <div class="product-icon">💧</div>
+                    <div class="product-name">Water</div>
+                    <div class="product-price">₹20</div>
+                    <button class="select-btn" onclick="selectProduct('water')">Select</button>
+                </div>
+
+                <div class="product-card" data-product="chocolate">
+                    <div class="product-icon">🍫</div>
+                    <div class="product-name">Chocolate</div>
+                    <div class="product-price">₹40</div>
+                    <button class="select-btn" onclick="selectProduct('chocolate')">Select</button>
+                </div>
+
+                <div class="product-card" data-product="sprite">
+                    <div class="product-icon">🥤</div>
+                    <div class="product-name">Sprite</div>
+                    <div class="product-price">₹50</div>
+                    <button class="select-btn" onclick="selectProduct('sprite')">Select</button>
+                </div>
+            </div>
+
+            <div class="payment-section">
+                <h3>Insert Bills</h3>
+                <div class="bills-grid">
+                    <button class="bill-btn" onclick="insertBill(1)">₹1</button>
+                    <button class="bill-btn" onclick="insertBill(2)">₹2</button>
+                    <button class="bill-btn" onclick="insertBill(5)">₹5</button>
+                    <button class="bill-btn" onclick="insertBill(10)">₹10</button>
+                    <button class="bill-btn" onclick="insertBill(20)">₹20</button>
+                    <button class="bill-btn" onclick="insertBill(50)">₹50</button>
+                    <button class="bill-btn" onclick="insertBill(100)">₹100</button>
+                    <button class="bill-btn" onclick="insertBill(200)">₹200</button>
+                    <button class="bill-btn" onclick="insertBill(500)">₹500</button>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="reset-btn" onclick="resetMachine()">Reset</button>
+            </div>
+
+            <div class="dispense-tray" id="dispenseTray">
+                <div class="tray-label">Collect Product Here</div>
+                <div id="dispensedItem"></div>
+            </div>
+        </div>
+
+        <div class="admin-panel">
+            <h2>Admin Panel</h2>
+            <div class="restock-form">
+                <h3>Restock Product</h3>
+                <input type="number" id="productId" placeholder="Product ID" />
+                <input type="text" id="productName" placeholder="Product Name" />
+                <input type="number" id="productPrice" placeholder="Price" />
+                <button class="admin-btn" onclick="restockProduct()">Add Product</button>
+            </div>
+            <div id="adminMessage"></div>
+        </div>
+    </div>
+
+    <script src="vendingMachine.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
