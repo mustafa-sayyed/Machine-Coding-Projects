@@ -1,0 +1,23 @@
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #030011;
+  color: #fff;
+}
+
+#star-container .star {
+  font-size: 70px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.star.filled{
+  color: goldenrod;
+}
