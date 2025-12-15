@@ -1,0 +1,23 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1rem;
+}
+
+.card {
+  border: 2px solid #000;
+  text-align: center;
+  border-radius: 5px;
+  padding: 20px 40px;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: 150ms;
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
